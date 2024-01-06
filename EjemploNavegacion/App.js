@@ -1,49 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Home } from './app/screens/HomeScreen';
-import { Contacts } from './app/screens/ContactsScreen';
-import { Productos } from './app/screens/Productos';
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {Home} from './app/screens/HomeScreen'
+import {Contacts} from './app/screens/ContactsScreen'
+import {Productos} from './app/screens/Productos'
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-const Drawer = createDrawerNavigator();
-
-const HomeStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name='HomeNav' component={Home} />
-  </Stack.Navigator>
-);
-
-const ContactsStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name='ContactsNav' component={Contacts} />
-  </Stack.Navigator>
-);
-
-const ProductosStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name='ProductosNav' component={Productos} />
-  </Stack.Navigator>
-);
-
-const TabNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="Home" component={HomeStack} />
-    <Tab.Screen name="Contacts" component={ContactsStack} />
-    <Tab.Screen name="Productos" component={ProductosStack} />
-  </Tab.Navigator>
-);
+const Stack = createNativeStackNavigator(); 
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Menu" component={TabNavigator} />
-      </Drawer.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name='HomeNav' component={Home} />
+        <Stack.Screen name='ContactsNav' component={Contacts} />
+        <Stack.Screen name='ProductosNav' component={Productos} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
