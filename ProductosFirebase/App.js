@@ -43,6 +43,8 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="Menu" component={TabNavigator} />
+        <Drawer.Screen name="Contacts" component={ContactsStack} />
+        <Drawer.Screen name="Productos" component={ProductosStack} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
